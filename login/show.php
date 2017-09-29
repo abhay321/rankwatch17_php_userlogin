@@ -27,5 +27,49 @@ if (!isset($_SESSION["login_user"]))
   </div>
 </nav>
 <?php
+$sql="SELECT * FROM users";
+if ($result=mysqli_query($con,$sql))
+	{
+  	// Fetch one and one row
+?>
+<div class="container">
+  <h2>Users Data</h2>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Mobile</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Country</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<?php
+    		while ($row = mysqli_fetch_row($result)){
+    	?>
+      <tr>
+        <td><?php echo $row[1];?></td>
+        <td><?php echo $row[2];?></td>
+        <td><?php echo "XXXXXXX";?></td>
+        <td><?php echo $row[4];?></td>
+        <td><?php echo $row[5];?></td>
+        <td><?php echo $row[6];?></td>
+        <td><?php echo $row[7];?></td>
+        <td><?php echo $row[8];?></td>
+        <td><?php echo $row[9];?></td>
+      </tr>
+      <?php
+      	}
+      	}
+      ?>
+    </tbody>
+  </table>
+</div>
+<?php
 include('footer.php');
 ?>
